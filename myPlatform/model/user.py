@@ -1,7 +1,7 @@
 """
 @author: hao.ling
-@Date: 2020/11/21 9:40 下午
-@Annotation: 用户信息表数据模型
+@Date: 2021/1/9 11:08 上午
+@Annotation: 用户信息表
 """
 
 from sqlalchemy import Column, Integer, String, Boolean, TIMESTAMP, func
@@ -10,7 +10,6 @@ from myPlatform.config.service import db
 
 
 class User(db.Model):
-    """用户信息表"""
     __tableName__ = "user"
 
     user_id = Column(Integer, primary_key=True, autoincrement=True, comment="用户id")

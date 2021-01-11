@@ -16,6 +16,6 @@ def parameter():
 def userId_number():
     """
     用户id开始值
-    :return:
+    :return: 10001
     """
     return 10001

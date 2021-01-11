@@ -1,7 +1,7 @@
 """
 @author: hao.ling
-@Date: 2020/12/20 3:46 下午
-@Annotation: 数据库配置
+@Date: 2021/1/9 11:07 上午
+@Annotation: 项目表
 """
 
 from sqlalchemy import Column, Integer, String, Boolean, TIMESTAMP, func, ForeignKey
@@ -9,16 +9,13 @@ from sqlalchemy import Column, Integer, String, Boolean, TIMESTAMP, func, Foreig
 from myPlatform.config.service import db
 
 
-class Database(db.Model):
-    """数据库信息表"""
-    __tableName__ = "database"
+class Project(db.Model):
+    __tableName__ = "project"
 
-    id = Column(Integer, primary_key=True, autoincrement=True, comment="数据库id")
-    database_name = Column(String(64), unique=True, nullable=False, comment="数据库连接名称")
-    database_host = Column(String(64), nullable=False, comment="数据库地址")
-    database_username = Column(String(64), nullable=False, comment="数据库账号")
-    database_password = Column(String(64), nullable=False, comment="数据库密码")
-    base_name = Column(String(64), nullable=False, comment="数据库库名")
+    id = Column(Integer, primary_key=True, autoincrement=True, comment="项目id")
+    project_name = Column(String(64), unique=True, nullable=False, comment="项目名称")
+    project_address = Column(String(64), nullable=True, comment="项目地址")
+    project_manager = Column(Integer, ForeignKey("user.user_id"), nullable=True, comment="项目负责人")
     status = Column(Boolean, server_default="0", comment="当前账户状态(0:启用,1:禁用)")
     create_id = Column(Integer, ForeignKey("user.user_id"), nullable=True, comment="创建者id")
     modify_id = Column(Integer, ForeignKey("user.user_id"), nullable=True, comment="修改者id")

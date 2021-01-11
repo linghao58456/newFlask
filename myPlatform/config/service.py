@@ -57,7 +57,6 @@ def create_tables(app):
     :return:
     """
     from myPlatform.model.user import User
-    from myPlatform.model.database import Database
-    from myPlatform.model.system import System
+    from myPlatform.model.project import Project
 
     db.create_all(app=app)
