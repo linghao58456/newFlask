@@ -21,10 +21,10 @@ class Users:
         result = self.user.select_user_info(username, status)
         if len(result) > 0:
             user_list = {}
-            for i in result:
+            for res in result:
                 user_list.update(
-                    {"userId": i[0], "username": i[1], "real_name": i[2], "status": i[4],
-                     "createTime": i[5], "modifyTime": i[6]})
+                    {"userId": res[0], "username": res[1], "real_name": res[2], "status": res[4],
+                     "createTime": res[5], "modifyTime": res[6]})
             return {"code": 1000, "data": user_list, "message": "success"}
         return {"code": 9999, "data": {}, "message": "用户名错误"}
 
