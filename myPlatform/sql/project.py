@@ -12,7 +12,7 @@ class Project(Connect):
         """
         查询项目信息
         :param current:
-        :param size:
+        :param size: 数量
         :param project_name: 项目名称
         :return:
         """

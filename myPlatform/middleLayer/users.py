@@ -20,9 +20,9 @@ class Users:
         """
         result = self.user.select_user_info(username, status)
         if len(result) > 0:
-            user_list = {}
+            user_list = []
             for res in result:
-                user_list.update(
+                user_list.append(
                     {"userId": res[0], "username": res[1], "real_name": res[2], "status": res[4],
                      "createTime": res[5], "modifyTime": res[6]})
             return {"code": 1000, "data": user_list, "message": "success"}
@@ -65,6 +65,7 @@ class Users:
     def update_user(self, username: str, password: str, old_password=None):
         """
         更新用户
+        :param old_password: 旧密码
         :param username: 用户名
         :param password: 密码
         :return:

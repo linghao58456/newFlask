@@ -8,4 +8,4 @@ from flask import Blueprint
 api = Blueprint("api", __name__)
 
 from myPlatform.api import errors
-from myPlatform.api.views import user
+from myPlatform.api.views import user, project
